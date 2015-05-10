@@ -16,6 +16,8 @@ class TableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBarHidden = false
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -56,6 +58,19 @@ class TableViewController: UITableViewController {
         
 
         return cell
+    }
+    
+    @IBAction func upVote(sender: AnyObject) {
+        let hitPoint = sender.convertPoint(CGPointZero, toView: self.tableView)
+        let hitIndex = self.tableView.indexPathForRowAtPoint(hitPoint)
+        
+        NSLog("Top Index Path \(hitIndex?.row)")
+    }
+    
+    @IBAction func downVote(sender: AnyObject) {
+        let hitPoint = sender.convertPoint(CGPointZero, toView: self.tableView)
+        let hitIndex = self.tableView.indexPathForRowAtPoint(hitPoint)
+        NSLog("Bottom Index Path \(hitIndex?.row)")
     }
     
 

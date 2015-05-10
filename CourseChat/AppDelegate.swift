@@ -18,6 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         Parse.setApplicationId("r2Df5pxw15z8zpQ7LBdNVy28IBpGtLTYdYKd0hKl", clientKey: "2vvXARedkxfcEkt4kXgoDRKliBVrLq3PqkMJQueT")
         
+        PFUser.enableAutomaticUser()
+        PFUser.currentUser().incrementKey("RunCount")
+        PFUser.currentUser().save()
+        
         return true
     }
 
